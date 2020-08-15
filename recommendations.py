@@ -2,15 +2,16 @@ import pandas as pd
 
 # saved_rules = pd.read_excel('rules.xlsx', dtype={'consequents':str})
 
-country_name = input('Enter your country name: ')
+def generate_recomm(country_name, item_name):
+    # country_name = input('Enter your country name: ')
 
-item_name = input('Enter the item name: ')
+    # item_name = input('Enter the item name: ')
 
-saved_rules = pd.read_excel('rules-for-' + country_name +'.xlsx')
+    saved_rules = pd.read_excel('rules-for-' + country_name +'.xlsx')
 
-resultants = saved_rules[ (saved_rules['antecedents'].astype('str').str.contains(item_name)) ]
+    resultants = saved_rules[ (saved_rules['antecedents'].astype('str').str.contains(item_name)) ]
 
-if(resultants.empty == False):
-    print(resultants['consequents'])
-else:
-    print('Sorry, no recommendations for this item')
+    if(resultants.empty == False):
+        return resultants['consequents']
+    else:
+        return ('Sorry, no recommendations for this item')
