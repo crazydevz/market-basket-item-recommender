@@ -37,4 +37,7 @@ def generateRulesForCountry(country_name, min_support):
 country_name = input("Enter your country name: ")
 min_support = float(input("Enter min_support: "))
 
+if(country_name and min_support):
+    print("Generating Association Rules... This may take a moment.")
+
 generateRulesForCountry(country_name, min_support)
